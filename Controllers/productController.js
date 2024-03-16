@@ -8,7 +8,7 @@ const addProduct = async (req, res) => {
         // Check if the product name already exists in the category
         const category = await Category.findOne({ categoryId: categoryId })
 
-        const existingProduct = Product.findOne({productName : productName});
+        const existingProduct = await Product.findOne({productName : productName});
         console.log(existingProduct)
         if (existingProduct) {
             return res.status(202).json({ message: "Product name already exists in the category" });
