@@ -19,7 +19,7 @@ const addCategory = async (req, res) => {
   }
 };
 const allcategories = async(req, res) => {
-  const categories = await Category.find({})
+  const categories = await Category.find({}).populate("products")
   if (categories) {
     res.status(200).json({ categories: categories });
   } else {
