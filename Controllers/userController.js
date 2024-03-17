@@ -9,7 +9,7 @@ cloudinary.config({
 });
 
 const signup = async (req, res) => {
-  const { companyName, username, password, email, phoneNumber, signUpAs } =
+  const { companyName, username, password, email, phoneNumber, signUpAs,companyDescription } =
     req.body;
 
   try {
@@ -42,6 +42,7 @@ const signup = async (req, res) => {
             email,
             phoneNumber,
             signUpAs,
+            companyDescription,
             image: cloudinaryResult.url,
           });
 
