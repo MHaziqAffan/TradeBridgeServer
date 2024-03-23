@@ -13,7 +13,7 @@ const addProduct = async (req, res) => {
     if (existingProduct) {
       return res
         .status(202)
-        .json({ message: "Product name already exists in the category" });
+        .json({ message: "Product name already exists" });
     }
 
     // Create the product
