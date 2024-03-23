@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
   signUpAs: { type: String, required: true }, 
   image: { type: String, required: true },
+  companyDescription:{type:String, required: true},
 });
 
 const User = mongoose.model('User', userSchema);
