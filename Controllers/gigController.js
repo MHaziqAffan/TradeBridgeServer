@@ -9,7 +9,8 @@ cloudinary.config({
 // Controller method for showing all gigs
 const showGigs = async (req, res) => {
   try {
-    const gigs = await Gig.find();
+    const { sellerId } = req.query; // Extract sellerId from query parameter
+    const gigs = await Gig.find({ seller: sellerId }); // Filter gigs by sellerId
     res.status(200).json({ gigs: gigs });
   } catch (error) {
     console.error(error);
