@@ -41,18 +41,6 @@ const fetchRequests = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-const fetch_S_Requests = async (req, res) => {
-    try {
-      const { shipperId } = req.query;
-      const requests = await ShipperRequest.find({ shipperId: shipperId,status: 'p' })
-        .populate("traderId")
-        .populate("shipperId");
-      res.status(200).json({ requests: requests });
-    } catch (error) {
-      console.error("Error fetching requests:", error);
-      res.status(500).json({ message: "Internal Server Error" });
-    }
-  };
 
   const accept = async (req, res) => {
     const { id } = req.params;
@@ -73,4 +61,4 @@ const fetch_S_Requests = async (req, res) => {
   
   
   
-module.exports = { book, fetchRequests,fetch_S_Requests,accept };
+module.exports = { book, fetchRequests,accept };
