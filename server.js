@@ -7,6 +7,7 @@ const userRoutes = require('./Routes/userRouter'); // Import your routes
 const categoryRoutes = require('./Routes/categoryRouter'); // Import your routes
 const productRoutes = require('./Routes/productRouter'); // Import your routes
 const gigRoutes=require('./Routes/GigRouter');
+const shipperRoutes=require('./Routes/shipperRouter')
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -20,6 +21,8 @@ app.use('/user', userRoutes); // Prefix all user routes with /api
 app.use('/category', categoryRoutes); // Prefix all user routes with /api
 app.use('/product', productRoutes); // Prefix all user routes with /api
 app.use('/gig',gigRoutes);
+app.use('/shipper', shipperRoutes); // Prefix all user routes with /api
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
