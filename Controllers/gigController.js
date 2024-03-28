@@ -6,11 +6,10 @@ cloudinary.config({
   api_key: "253751116837458",
   api_secret: "7zMR-CaUfYOZoMq5n8GZ-TZyeKE",
 });
-// Controller method for showing all gigs
 const showGigs = async (req, res) => {
   try {
-    const { sellerId } = req.query; // Extract sellerId from query parameter
-    const gigs = await Gig.find({ seller: sellerId }); // Filter gigs by sellerId
+    const { sellerId } = req.query; 
+    const gigs = await Gig.find({ seller: sellerId }); 
     res.status(200).json({ gigs: gigs });
   } catch (error) {
     console.error(error);
@@ -18,7 +17,7 @@ const showGigs = async (req, res) => {
   }
 };
 
-// Controller method for adding a new gig
+
 const addGig = async (req, res) => {
   const { category, product, description, price, seller } = req.body;
 
@@ -34,7 +33,7 @@ const addGig = async (req, res) => {
               .json({ message: "Error uploading image to Cloudinary" });
           }
 
-          // Create a new user object with the provided data
+         
           const newGig = new Gig({
             category,
             product,
@@ -45,7 +44,6 @@ const addGig = async (req, res) => {
           });
       
 
-          // Save the user object to the database
           newGig
             .save()
             .then(() => {
@@ -61,10 +59,7 @@ const addGig = async (req, res) => {
             });
         }
       );
-    // Create a new gig object with the provided data
     
-    // Save the gig object to the database
-    //await newGig.save();
 
     
   } catch (error) {

@@ -16,17 +16,12 @@ const addProduct = async (req, res) => {
         .json({ message: "Product name already exists in the category" });
     }
 
-    // Create the product
     const product = new Product({
       productName: productName,
     });
 
     const savedProduct = await product.save();
-
-    // Push the new product into the category's products array
     category.products.push(savedProduct);
-
-    // Save the updated category
     await category.save();
 
     res.status(201).json({ message: "Product added successfully" });
@@ -36,7 +31,7 @@ const addProduct = async (req, res) => {
   }
 };
 const fetchProductByCategoryId = async (req, res) => {
-  const categoryId = req.params.categoryId; // Extract category ID from request parameters
+  const categoryId = req.params.categoryId; 
 
   try {
     const products = await Category.findOne({

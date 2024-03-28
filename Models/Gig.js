@@ -6,7 +6,7 @@ const gigSchema = new mongoose.Schema({
   description: { type: String, required: true },
   price: { type: Number, required: true },
   seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  image: { type: String, required: true }, // Array of image URLs
+  image: { type: String, required: true }
 });
 
 const Gig = mongoose.model('Gig', gigSchema);

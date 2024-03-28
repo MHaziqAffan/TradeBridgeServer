@@ -9,7 +9,7 @@ const book = async (req, res) => {
       traderId: traderId,
       invoice: invoice,
       details: details,
-      status: "p", // Assuming 'p' stands for pending
+      status: "p", 
     });
     await newShipperRequest.save();
 
